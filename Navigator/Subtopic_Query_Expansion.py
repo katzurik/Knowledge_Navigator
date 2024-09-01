@@ -1,14 +1,11 @@
 import json
-import anthropic
-from Keys import CLAUDE_API_KEY , OPENAI_KEY
 from openai import OpenAI
 import os
 import re
-oai_client = OpenAI(api_key=OPENAI_KEY)
-claude_client = anthropic.Anthropic(api_key=CLAUDE_API_KEY)
 
 
-def complex_task_query_generation(cluster_data,query,model="claude-3-5-sonnet-20240620",api_type='Anthropic'):
+
+def complex_task_query_generation(cluster_data,query,api_type='OAI'):
 
     is_title = True
     is_abstract = False
@@ -31,44 +28,31 @@ def complex_task_query_generation(cluster_data,query,model="claude-3-5-sonnet-20
     content += "\n</titles_and_abstracts>\n\n"
     content+= f"Please follow these steps to complete the task:\n\n1. Carefully read through each title and abstract.\n\n2. As you read, identify words or short phrases that are specifically related to \"{subtopic}\".\n\n3. Pay special attention to recurring terms or concepts across multiple papers, as these are likely to be particularly relevant.\n\n4. Avoid selecting overly general terms related to \"{general_topic}\". Focus on terms that specifically relate to the \"{subtopic}\" aspect.\n\n5. After analyzing all the titles and abstracts, compile a list of the most relevant and frequently occurring keywords or phrases.\n\n6. Present your final list of keywords in order of relevance, with the most important or frequently occurring terms first. Include this list within <keywords> tags.\n\n7. Provide a brief explanation for why you chose each keyword, highlighting its relevance to \"{subtopic}\". Include this explanation within <justification> tags.\n\nRemember, the goal is to identify terms that will help retrieve documents specifically about \"{subtopic}\", not about \"{general_topic}\" in general. Your selected keywords should reflect this focused approach."
     chat_messages = [{"role": "user", "content": [{'type': "text", "text" : content}]}]
+
     if api_type == 'OAI':
-      response = oai_client.chat.completions.create(
-          model=model,
-          #response_format={ "type": "json_object" },
-          messages=[
-           #{"role": "system", "content": SYSTEM_PROMPT.strip()},
-            {"role": "user", "content": content}
-          ]
-        )
-      chat_messages.append({"role": 'user', "content": [{"type": "text", "text": response.choices[0].message.content}]})
+        from Keys import OPENAI_KEY
+        oai_client = OpenAI(api_key=OPENAI_KEY)
+        response = oai_client.chat.completions.create(model="gpt-4o-2024-05-13",messages=[{"role": "user", "content": content}])
+        chat_messages.append({"role": 'user', "content": [{"type": "text", "text": response.choices[0].message.content}]})
 
-      return response.choices[0].message.content , chat_messages
+        return response.choices[0].message.content , chat_messages
 
     if api_type == 'Anthropic':
-      message = claude_client.messages.create(
+        import anthropic
+        from Keys import CLAUDE_API_KEY
+        claude_client = anthropic.Anthropic(api_key=CLAUDE_API_KEY)
+        message = claude_client.messages.create(
         model="claude-3-5-sonnet-20240620",
         max_tokens=1000,
         temperature=0,
-        messages=chat_messages
-      )
-      chat_messages.append({"role": message.role, "content": [ {"type": "text", "text": message.content[0].text}]})
-      return message.content[0].text , chat_messages
+        messages=chat_messages)
+        chat_messages.append({"role": message.role, "content": [ {"type": "text", "text": message.content[0].text}]})
+        return message.content[0].text , chat_messages
 
 
-def transform_keywords_to_boolean_query_full_chat(asistent_chat,api_type = 'Anthropic'):
-    prompt = ""
-    chat_messages = asistent_chat.append({"role": 'user', "content": [ {"type": "text", "text":prompt }]})
-    if api_type == 'Anthropic':
-      message = claude_client.messages.create(
-        model="claude-3-5-sonnet-20240620",
-        max_tokens=1000,
-        temperature=0,
-        messages=chat_messages
-      )
-    return message.content[0].text
 
 
-import re
+
 
 
 def extract_keywords(text):
