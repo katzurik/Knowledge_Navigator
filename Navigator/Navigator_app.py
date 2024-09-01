@@ -23,7 +23,7 @@ def ui_setup():
 
     with c1:
         # Assuming the image path is correct and accessible
-        st.image("images/whale3.png", width=200)
+        st.image("assets/whale3.png", width=200)
 
     with c2:
         st.caption("")
