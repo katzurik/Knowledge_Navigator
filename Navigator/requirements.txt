@@ -1,0 +1,8 @@
+umap-learn==0.53
+scikit-learn==1.4.1
+scipy==1.12.0
+streamlit==1.32.0
+openai==1.9.0
+anthropic==0.31.0
+numpy==1.26.4
+tqdm==4.65.0
