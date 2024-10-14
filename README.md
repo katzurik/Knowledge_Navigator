@@ -7,6 +7,7 @@
 <a href="https://knowledge-navigators.github.io/"><b>Website</b></a> 🐋 <a href="https://knowledge-navigator.streamlit.app/"><b>Streamlit demo</b></a> 🐋️ <a href="https://www.arxiv.org/abs/2408.15836"><b>Paper</b></a> 
 </p>
 
+Knowledge Navigator is a system for exploring scientific literature by organizing search results from broad queries into a structured hierarchy of topics and subtopics. This structure helps users navigate research themes, refine their focus, and discover more relevant documents. By combining LLMs with cluster-based methods, we enable an innovative browsing experience. We evaluate the system on the CLUSTREC-COVID and SCITOC benchmarks, and provide the code, prompts, and benchmarks publicly.
 ## System Overview
 <p align="center">
   <img src="Navigator/assets/system_over_view_poster.png" style="width: 100%; height: auto;">
