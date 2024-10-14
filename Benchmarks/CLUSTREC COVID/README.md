@@ -1,10 +1,5 @@
----
-license: cc-by-sa-4.0
-language:
-- en
-size_categories:
-- n<1K
----
+
+
 # CLUSTREC-COVID: A Topical Clustering Benchmark for COVID-19 Scientific Research
 
 ## Dataset Summary
@@ -13,7 +8,7 @@ size_categories:
 The dataset is useful for researchers aiming to evaluate clustering algorithms and techniques for automatic organization of scientific literature. It can also be used for exploring information retrieval systems that aim to group documents by subtopic or related research areas.
 
 The source of this dataset is the [TREC-COVID](https://ir.nist.gov/trec-covid/) retrieval dataset, which has been adapted for clustering and organization tasks.
-****
+
 ## Accessing the Dataset on Hugging Face
 The dataset is also available on Hugging Face. You can easily load it using the following code:
 ```python
@@ -31,7 +26,7 @@ Each document in the dataset includes the following fields:
 - **abstract** (string): The abstract or summary of the paper.
 - **doc_id** (string): A unique document identifier.
 ### Example Entry
-```json
+```yaml
 {
   "topic_name": "coronavirus response to weather changes",
   "topic_id": "2",
