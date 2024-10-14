@@ -2,7 +2,7 @@
 
 ## Overview
 
-SCITOC is a novel benchmark designed to evaluate the ability of systems to handle complex scientific topics and produce well-organized outputs. The dataset consists of 50 Table of Contents (TOCs) extracted from scientific review papers sourced from 15 diverse peer-reviewed journals, all published by **Annual Reviews**.
+SCITOC is a novel benchmark designed to evaluate the ability of systems to handle complex scientific topics and produce well-organized outputs. The dataset consists of 50 Table of Contents (TOCs) extracted from scientific review papers sourced from 15 diverse peer-reviewed journals, all published by [Annual Reviews](https://www.annualreviews.org/).
 
 The goal of SCITOC is to assess systems' capability to automatically structure large and complex scientific literature, aiding researchers in organizing information into hierarchical formats such as tables of contents.
 
@@ -54,6 +54,12 @@ The SCITOC dataset is stored as a JSON file, where each entry corresponds to the
 	uuid: A unique identifier for the entry.
 	query: The query that was used to retrieve relevant papers in Knowledge Navigator paper.
 ```
+## License
+
+
+This dataset is licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. This license permits unrestricted use, distribution, and reproduction in any medium, provided the original authors and sources are credited.
+
+All reviews used in the construction of this dataset are **open access** and licensed under **CC BY 4.0**. Please ensure proper attribution to the original authors and sources when using the dataset.
 
 ### Citation Information
 Cite as:
