@@ -46,10 +46,17 @@ The dataset inherits its license from the original [TREC-COVID](https://ir.nist.
 ### Citation Information
 Cite as:
 ```
-@article{katz2024knowledge,
-  title={Knowledge Navigator: LLM-guided Browsing Framework for Exploratory Search in Scientific Literature},
-  author={Katz, Uri and Levy, Mosh and Goldberg, Yoav},
-  journal={arXiv preprint arXiv:2408.15836},
-  year={2024}
+@inproceedings{katz-etal-2024-knowledge,
+    title = "Knowledge Navigator: {LLM}-guided Browsing Framework for Exploratory Search in Scientific Literature",
+    author = "Katz, Uri  and
+      Levy, Mosh  and
+      Goldberg, Yoav",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.516",
+    pages = "8838--8855",
 }
 ```
