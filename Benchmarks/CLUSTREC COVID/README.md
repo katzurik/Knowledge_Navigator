@@ -10,7 +10,7 @@ The dataset is useful for researchers aiming to evaluate clustering algorithms a
 The source of this dataset is the [TREC-COVID](https://ir.nist.gov/trec-covid/) retrieval dataset, which has been adapted for clustering and organization tasks.
 
 ## Accessing the Dataset on Hugging Face
-The dataset is also available on Hugging Face. You can easily load it using the following code:
+The dataset is also [available on Hugging Face](https://huggingface.co/datasets/Uri-ka/CLUSTREC-COVID). You can easily load it using the following code:
 ```python
 from datasets import load_dataset
 
